@@ -1,5 +1,6 @@
 ﻿using SQL_Dependency.Hubs;
 using SQL_Dependency.Models;
+using SQL_Dependency.Repositories;
 using TableDependency.SqlClient;
 
 namespace SQL_Dependency.SubscribeTableDependenies;
@@ -8,11 +9,14 @@ public class SubscribeProductTableDependency
 {
     SqlTableDependency<Product> _tableDependency;
 
+    ProductRepository _productRepository;
+
     ProductHub _productHub;
 
-    public SubscribeProductTableDependency(ProductHub productHub)
+    public SubscribeProductTableDependency(IConfiguration config, ProductHub productHub)
     {
         _productHub = productHub;
+        _productRepository = new ProductRepository(config.GetConnectionString("Default"));
     }
 
     public void SubscibeTableDependency()
@@ -30,13 +34,13 @@ public class SubscribeProductTableDependency
     {
         Console.WriteLine($"SqlDependecy error: ${e.Error.Message}");
     }
-    
+
     public void TableDependency_OnChange(object sender, TableDependency.SqlClient.Base.EventArgs.RecordChangedEventArgs<Product> e)
     {
-        if(e.ChangeType != TableDependency.SqlClient.Base.Enums.ChangeType.None)
+        if (e.ChangeType != TableDependency.SqlClient.Base.Enums.ChangeType.None)
         {
-            _productHub.SendProducts();
-            Console.WriteLine("SqlDependency change: Products are sent!");
+            _productRepository.ProductsToXml();
+            Console.WriteLine("SqlDependency change: Products are sending");
         }
     }
 }

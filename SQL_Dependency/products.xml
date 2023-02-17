@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product>
+    <ProductID>1</ProductID>
+    <ProductName>Chai</ProductName>
+    <QuantityPerUnit>10 boxes x 20 bags</QuantityPerUnit>
+    <UnitPrice>27.0000</UnitPrice>
+  </Product>
+  <Product>
+    <ProductID>2</ProductID>
+    <ProductName>Chang</ProductName>
+    <QuantityPerUnit>24 - 12 oz bottles</QuantityPerUnit>
+    <UnitPrice>16.0000</UnitPrice>
+  </Product>
+  <Product>
+    <ProductID>3</ProductID>
+    <ProductName>Aniseed Syrup</ProductName>
+    <QuantityPerUnit>12 - 550 ml bottles</QuantityPerUnit>
+    <UnitPrice>10.0000</UnitPrice>
+  </Product>
+  <Product>
+    <ProductID>4</ProductID>
+    <ProductName>Chef Anton's Cajun Seasoning</ProductName>
+    <QuantityPerUnit>48 - 6 oz jars</QuantityPerUnit>
+    <UnitPrice>22.0000</UnitPrice>
+  </Product>
+  <Product>
+    <ProductID>5</ProductID>
+    <ProductName>Chef Anton's Gumbo Mix</ProductName>
+    <QuantityPerUnit>36 boxes</QuantityPerUnit>
+    <UnitPrice>22.0000</UnitPrice>
+  </Product>
+  <Product>
+    <ProductID>6</ProductID>
+    <ProductName>Grandma's Boysenberry Spread</ProductName>
+    <QuantityPerUnit>12 - 8 oz jars</QuantityPerUnit>
+    <UnitPrice>25.0000</UnitPrice>
+  </Product>
+  <Product>
+    <ProductID>7</ProductID>
+    <ProductName>Uncle Bob's Organic Dried Pears</ProductName>
+    <QuantityPerUnit>12 - 1 lb pkgs.</QuantityPerUnit>
+    <UnitPrice>30.0000</UnitPrice>
+  </Product>
+  <Product>
+    <ProductID>8</ProductID>
+    <ProductName>Northwoods Cranberry Sauce</ProductName>
+    <QuantityPerUnit>12 - 12 oz jars</QuantityPerUnit>
+    <UnitPrice>40.0000</UnitPrice>
+  </Product>
+  <Product>
+    <ProductID>9</ProductID>
+    <ProductName>Mishi Kobe Niku</ProductName>
+    <QuantityPerUnit>18 - 500 g pkgs.</QuantityPerUnit>
+    <UnitPrice>97.0000</UnitPrice>
+  </Product>
+  <Product>
+    <ProductID>10</ProductID>
+    <ProductName>Ikura</ProductName>
+    <QuantityPerUnit>12 - 200 ml jars</QuantityPerUnit>
+    <UnitPrice>31.0000</UnitPrice>
+  </Product>
+</ArrayOfProduct>

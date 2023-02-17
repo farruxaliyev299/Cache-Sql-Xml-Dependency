@@ -16,6 +16,7 @@ namespace SQL_Dependency
             builder.Services.AddSignalR();
 
             builder.Services.AddSingleton<SubscribeProductTableDependency>();
+            builder.Services.AddSingleton<SubscribeXmlFileDependency>();
             builder.Services.AddSingleton<ProductHub>();
 
             var app = builder.Build();
@@ -38,6 +39,8 @@ namespace SQL_Dependency
             app.MapHub<ProductHub>("/Index");
 
             app.Services.GetService<SubscribeProductTableDependency>().SubscibeTableDependency();
+
+            app.Services.GetService<SubscribeXmlFileDependency>().SubscribeXmlDependency();
 
             app.Run();
         }

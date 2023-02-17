@@ -1,6 +1,8 @@
 ﻿using SQL_Dependency.Models;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace SQL_Dependency.Repositories
 {
@@ -35,28 +37,48 @@ namespace SQL_Dependency.Repositories
             return products;
         }
 
+        public void ProductsToXml()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Product>));
+            var products = GetProducts();
+
+            try
+            {
+                using (var writer = new StreamWriter(@"C:\C#\ASP.NET\MVC\SQL_Dependency\SQL_Dependency\bin\Debug\net7.0\products.xml"))
+                {
+                    serializer.Serialize(writer, products);
+                }
+
+                Console.WriteLine("Products serialized");
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public DataTable GetProductsFromDb()
         {
             string query = "select [ProductID], [ProductName], [QuantityPerUnit], [UnitPrice] from Product";
 
             DataTable dt = new DataTable();
 
-            using(SqlConnection conn = new SqlConnection(this._connectionString))
+            using (SqlConnection conn = new SqlConnection(this._connectionString))
             {
                 conn.Open();
                 try
                 {
-                    using(SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        using(SqlDataReader reader = cmd.ExecuteReader())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             dt.Load(reader);
                         }
                     }
-
+                    dt.TableName = "Product";
                     return dt;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     throw;
                 }
@@ -64,6 +86,24 @@ namespace SQL_Dependency.Repositories
                 {
                     conn.Close();
                 }
+            }
+        }
+
+        public string GetXml(string path)
+        {
+            var xml = new XmlDocument();
+            using (StreamReader sr = new StreamReader(path))
+            {
+                xml.LoadXml(sr.ReadToEnd());
+            }
+            return xml.DocumentElement.InnerXml;
+        }
+
+        public void WriteXml(string str, string path)
+        {
+            using(StreamWriter sw = new StreamWriter(path))
+            {
+                sw.WriteLine(str);
             }
         }
     }

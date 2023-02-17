@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\net7.0\products.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="SqlTableDependency" Version="8.5.8" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
