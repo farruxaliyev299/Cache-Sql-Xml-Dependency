@@ -4,7 +4,7 @@
     <ProductID>1</ProductID>
     <ProductName>Chai</ProductName>
     <QuantityPerUnit>10 boxes x 20 bags</QuantityPerUnit>
-    <UnitPrice>27.0000</UnitPrice>
+    <UnitPrice>41.0000</UnitPrice>
   </Product>
   <Product>
     <ProductID>2</ProductID>
@@ -22,7 +22,7 @@
     <ProductID>4</ProductID>
     <ProductName>Chef Anton's Cajun Seasoning</ProductName>
     <QuantityPerUnit>48 - 6 oz jars</QuantityPerUnit>
-    <UnitPrice>27.0000</UnitPrice>
+    <UnitPrice>23.0000</UnitPrice>
   </Product>
   <Product>
     <ProductID>5</ProductID>

@@ -9,6 +9,8 @@ public class SubscribeXmlFileDependency
 
     private readonly ProductHub _productHub;
 
+    static FileSystemWatcher watcher;
+
     public SubscribeXmlFileDependency(IConfiguration config, ProductHub productHub)
 	{
         this._productRepository = new ProductRepository(config.GetConnectionString("Default"));
@@ -17,7 +19,7 @@ public class SubscribeXmlFileDependency
 
     public void SubscribeXmlDependency()
     {
-        FileSystemWatcher watcher = new FileSystemWatcher();
+        watcher = new FileSystemWatcher();
 
         watcher.Path = Directory.GetCurrentDirectory();
 
@@ -33,6 +35,7 @@ public class SubscribeXmlFileDependency
 
     private void XmlDependency_OnChange(object sender, FileSystemEventArgs e)
     {
+        Task.Delay(1000).Wait();
         _productHub.SendProducts();
         Console.WriteLine("Changes in xml file detected");
     }
